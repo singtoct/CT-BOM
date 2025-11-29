@@ -132,6 +132,57 @@ export interface ProductionQueue {
   addedDate: string;
 }
 
+// New Interfaces for Sales & Delivery
+export interface FactoryCustomer {
+  id: string;
+  name: string;
+  address: string;
+  phone: string;
+  contactPerson: string;
+}
+
+export interface DeliveryItem {
+  inventoryItemId: string;
+  productName: string;
+  quantity: number;
+  lotNumber?: string;
+  unitPrice: number;
+}
+
+export interface DeliveryNote {
+  id: string;
+  dnNumber: string; // DN-YYYYMM-XXX
+  customerId: string;
+  date: string;
+  status: 'Pending' | 'Delivered';
+  items: DeliveryItem[];
+  totalAmount: number;
+}
+
+// New Interfaces for Procurement
+export interface Supplier {
+  id: string;
+  name: string;
+  contactPerson: string;
+  phone: string;
+}
+
+export interface POItem {
+  rawMaterialId: string;
+  quantity: number;
+  unitPrice: number;
+}
+
+export interface PurchaseOrder {
+  id: string;
+  poNumber: string;
+  supplierId: string;
+  orderDate: string;
+  expectedDate: string;
+  status: 'Draft' | 'Ordered' | 'Received' | 'Completed';
+  items: POItem[];
+}
+
 export interface AppData {
   packing_orders: PackingOrder[];
   packing_logs: PackingLog[];
@@ -144,4 +195,8 @@ export interface AppData {
   factory_products: FactoryProduct[];
   production_queue: ProductionQueue[];
   stock_transactions: StockTransaction[];
+  factory_customers: FactoryCustomer[];
+  delivery_notes: DeliveryNote[];
+  factory_suppliers: Supplier[];
+  factory_purchase_orders: PurchaseOrder[];
 }

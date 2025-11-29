@@ -1,4 +1,6 @@
 
+
+
 import { AppData } from '../types';
 
 // In a real app, this would fetch from an API.
@@ -111,7 +113,6 @@ export const mockData: AppData = {
       notes: "รอยขนแมวหน้ากาก"
     }
   ],
-  // Removed redundant raw materials array as it's merged into packing_inventory with category='RM'
   packing_raw_materials: [], 
   factory_products: [
     {
@@ -141,30 +142,30 @@ export const mockData: AppData = {
       aiPriceRecommendation: { recommendedPrice: 0.35 }
     },
     {
-      "id": "n1o2p3q4",
-      "name": "ชุดขาล็อคขาเสียบสาย G",
-      "color": "สีขาว",
-      "productType": "FinishedGood",
-      "salePrice": 0.29,
-      "totalCost": 0.1381,
-      "materialCost": 0.0208,
-      "profit": 0.15,
-      "cycleTimeSeconds": 5.6,
-      "laborAllocation": 25,
-      "aiPriceRecommendation": { "recommendedPrice": 0.42 }
+      id: "n1o2p3q4",
+      name: "ชุดขาล็อคขาเสียบสาย G",
+      color: "สีขาว",
+      productType: "FinishedGood",
+      salePrice: 0.29,
+      totalCost: 0.1381,
+      materialCost: 0.0208,
+      profit: 0.15,
+      cycleTimeSeconds: 5.6,
+      laborAllocation: 25,
+      aiPriceRecommendation: { recommendedPrice: 0.42 }
     },
     {
-      "id": "l9m0n1o2",
-      "name": "ชุดขาล็อคขาเสียบสาย L",
-      "color": "สีขาว",
-      "productType": "FinishedGood",
-      "salePrice": 0.3,
-      "totalCost": 0.0653,
-      "materialCost": 0.0234,
-      "profit": 0.23,
-      "cycleTimeSeconds": 2,
-      "laborAllocation": 25,
-      "aiPriceRecommendation": { "recommendedPrice": 0.17 }
+      id: "l9m0n1o2",
+      name: "ชุดขาล็อคขาเสียบสาย L",
+      color: "สีขาว",
+      productType: "FinishedGood",
+      salePrice: 0.3,
+      totalCost: 0.0653,
+      materialCost: 0.0234,
+      profit: 0.23,
+      cycleTimeSeconds: 2,
+      laborAllocation: 25,
+      aiPriceRecommendation: { recommendedPrice: 0.17 }
     },
     {
        id: "p5",
@@ -261,6 +262,63 @@ export const mockData: AppData = {
       { id: "tx_2", itemId: "inv1", type: "OUT", quantity: 2000, date: "2025-11-21 14:00", user: "แพทตี้", documentRef: "INV-25001", note: "ส่งลูกค้า" },
       { id: "tx_3", itemId: "inv6", type: "IN", quantity: 1000, date: "2025-11-25 10:00", user: "จัดซื้อ", documentRef: "PO-2511-05", note: "รับวัตถุดิบ" },
       { id: "tx_4", itemId: "inv6", type: "OUT", quantity: 500, date: "2025-11-26 08:00", user: "กะปิ", documentRef: "JOB-004", note: "เบิกผลิต" }
+  ],
+  factory_customers: [
+    { id: "4c9db0db", name: "บริษัท จีโนลกรุ๊ป ซีที อิเล็คทริคฟิเคชั่น จำกัด", address: "49/3 หมู่ 8 ต.นาดี อ.เมืองสมุทรสาคร จ.สมุทรสาคร 74000", phone: "034-496-686", contactPerson: "ขนส่ง" },
+    { id: "a6a2a826", name: "บริษัท ซีที อิเล็คทริค จำกัด", address: "15/16 หมู่ 9 ต.นาดี อ.เมืองสมุทรสาคร จ.สมุทรสาคร 74000", phone: "-", contactPerson: "เพียวเพียว" }
+  ],
+  delivery_notes: [
+    { 
+      id: "dn_001", 
+      dnNumber: "DN-202511-001", 
+      customerId: "4c9db0db", 
+      date: "2025-11-25", 
+      status: "Delivered",
+      items: [
+        { inventoryItemId: "inv1", productName: "บล็อคลอย CT 2x4 (สีขาว)", quantity: 2000, unitPrice: 3.83, lotNumber: "PO-260568" }
+      ],
+      totalAmount: 7660
+    },
+     { 
+      id: "dn_002", 
+      dnNumber: "DN-202511-002", 
+      customerId: "a6a2a826", 
+      date: "2025-11-28", 
+      status: "Pending",
+      items: [
+        { inventoryItemId: "inv2", productName: "ฝาหน้ากาก CT A-103 (สีขาว)", quantity: 5000, unitPrice: 3.57, lotNumber: "PO-271068" }
+      ],
+      totalAmount: 17850
+    }
+  ],
+  factory_suppliers: [
+    { id: "sup_001", name: "บริษัท เค.พี.พลาสติก จำกัด", contactPerson: "คุณอำนาจ", phone: "091-157-8212" },
+    { id: "sup_002", name: "บริษัท โมโต ปิ๊กเม้นท์ จำกัด", contactPerson: "คุณถนอม", phone: "0-2450-7365-6" },
+    { id: "sup_003", name: "บริษัท เอ ดี เอส บรรจุภัณฑ์ จำกัด", contactPerson: "-", phone: "-" }
+  ],
+  factory_purchase_orders: [
+    { 
+      id: "po_001", 
+      poNumber: "PO-2508-001", 
+      supplierId: "sup_001", 
+      orderDate: "2025-08-08", 
+      expectedDate: "2025-08-09", 
+      status: "Received", 
+      items: [
+        { rawMaterialId: "inv6", quantity: 2000, unitPrice: 43.5 }
+      ]
+    },
+    { 
+      id: "po_002", 
+      poNumber: "PO-2511-005", 
+      supplierId: "sup_002", 
+      orderDate: "2025-11-25", 
+      expectedDate: "2025-11-27", 
+      status: "Ordered", 
+      items: [
+        { rawMaterialId: "inv7", quantity: 500, unitPrice: 22 }
+      ]
+    }
   ]
 };
 
@@ -270,8 +328,11 @@ export const getMoldingLogs = () => mockData.molding_logs;
 export const getMachines = () => mockData.factory_machines;
 export const getEmployees = () => mockData.packing_employees;
 export const getQCEntries = () => mockData.packing_qc_entries;
-// Raw materials are now part of inventory, filtered by category
 export const getRawMaterials = () => mockData.packing_inventory.filter(i => i.category === 'RM');
 export const getProducts = () => mockData.factory_products;
 export const getProductionQueue = () => mockData.production_queue;
 export const getStockTransactions = (itemId: string) => mockData.stock_transactions.filter(t => t.itemId === itemId);
+export const getCustomers = () => mockData.factory_customers;
+export const getDeliveryNotes = () => mockData.delivery_notes;
+export const getSuppliers = () => mockData.factory_suppliers;
+export const getPurchaseOrders = () => mockData.factory_purchase_orders;

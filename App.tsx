@@ -7,6 +7,8 @@ import { Orders } from './components/Orders';
 import { Production } from './components/Production';
 import { ProductManagement } from './components/ProductManagement';
 import { QC } from './components/QC';
+import { Employees } from './components/Employees';
+import { Procurement } from './components/Procurement';
 import { Bell, Search, User, Settings, Globe } from 'lucide-react';
 import { LanguageProvider, useLanguage } from './contexts/LanguageContext';
 import { Language } from './services/translations';
@@ -29,6 +31,10 @@ function AppContent() {
         return <ProductManagement />;
       case 'qc':
         return <QC />;
+      case 'employees':
+        return <Employees />;
+      case 'procurement':
+        return <Procurement />;
       default:
         return (
           <div className="flex flex-col items-center justify-center h-96 text-slate-400">

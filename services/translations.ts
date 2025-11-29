@@ -5,7 +5,7 @@ export const translations = {
   en: {
     // Sidebar
     dashboard: 'Dashboard',
-    orders: 'Packing Orders',
+    orders: 'Packing Orders & Delivery',
     production: 'Production / Molding',
     inventory: 'Inventory',
     product_management: 'Product Management',
@@ -16,6 +16,7 @@ export const translations = {
     manager: 'Manager',
     online: 'Online',
     factory_erp: 'Factory ERP',
+    procurement: 'Procurement',
 
     // Header
     search_placeholder: 'Quick search...',
@@ -36,7 +37,9 @@ export const translations = {
     inspector: 'Inspector',
     lot: 'Lot',
 
-    // Orders
+    // Orders & Delivery
+    tab_packing_orders: 'Packing Orders',
+    tab_delivery_notes: 'Delivery Notes',
     search_orders: 'Search orders...',
     lot_no: 'Lot No.',
     product_name: 'Product Name',
@@ -49,6 +52,23 @@ export const translations = {
     status_cancelled: 'Cancelled',
     status_pending: 'Pending',
     status_open: 'Open',
+    create_dn: 'Create Delivery Note',
+    dn_number: 'DN Number',
+    customer: 'Customer',
+    delivery_date: 'Delivery Date',
+    items_count: 'Items',
+    total_amount: 'Total Amount',
+    actions: 'Actions',
+    status_delivered: 'Delivered',
+    mark_delivered: 'Mark as Delivered',
+    select_customer: 'Select Customer',
+    add_item: 'Add Item',
+    select_product_stock: 'Select Product (Available Stock)',
+    price_unit: 'Price/Unit',
+    in_stock: 'In Stock',
+    remove: 'Remove',
+    save_dn: 'Save Delivery Note',
+    stock_deducted_msg: 'Creating DN will deduct stock immediately.',
 
     // Inventory (Updated Round 2)
     finished_goods: 'Finished Goods',
@@ -162,6 +182,34 @@ export const translations = {
     qc_status_passed: 'Passed',
     qc_status_rejected: 'Rejected',
 
+    // Employees (HR)
+    employee_list: 'Employee List',
+    add_employee: 'Add Employee',
+    edit_employee: 'Edit Employee',
+    daily_wage: 'Daily Wage',
+    department: 'Department',
+    role: 'Role',
+    search_employees: 'Search employees...',
+    
+    // Procurement
+    procurement_dashboard: 'Procurement',
+    tab_suppliers: 'Suppliers',
+    tab_purchase_orders: 'Purchase Orders (PO)',
+    create_po: 'Create PO',
+    supplier: 'Supplier',
+    contact_person: 'Contact Person',
+    phone: 'Phone',
+    po_number: 'PO Number',
+    order_date: 'Order Date',
+    expected_date: 'Expected Date',
+    receive_goods: 'Receive Goods',
+    status_draft: 'Draft',
+    status_ordered: 'Ordered',
+    status_received: 'Received',
+    select_supplier: 'Select Supplier',
+    select_material: 'Select Material',
+    add_material: 'Add Material',
+    
     // General
     under_construction: 'Under Construction',
     coming_soon: 'The {{module}} module is coming soon.',
@@ -169,7 +217,7 @@ export const translations = {
   th: {
     // Sidebar
     dashboard: 'ภาพรวม',
-    orders: 'รายการแพ็คสินค้า',
+    orders: 'คำสั่งซื้อและจัดส่ง',
     production: 'ฝ่ายผลิต / ฉีดขึ้นรูป',
     inventory: 'คลังสินค้า',
     product_management: 'จัดการรายการสินค้า',
@@ -180,6 +228,7 @@ export const translations = {
     manager: 'ผู้จัดการ',
     online: 'ออนไลน์',
     factory_erp: 'ระบบจัดการโรงงาน',
+    procurement: 'จัดซื้อ (Procurement)',
 
     // Header
     search_placeholder: 'ค้นหาด่วน...',
@@ -200,8 +249,10 @@ export const translations = {
     inspector: 'ผู้ตรวจสอบ',
     lot: 'ล็อต',
 
-    // Orders
-    search_orders: 'ค้นหาคำสั่งซื้อ...',
+    // Orders & Delivery
+    tab_packing_orders: 'รายการแพ็คสินค้า (Internal)',
+    tab_delivery_notes: 'ใบส่งของ (Delivery Notes)',
+    search_orders: 'ค้นหาเอกสาร...',
     lot_no: 'เลขที่ล็อต',
     product_name: 'ชื่อสินค้า',
     color: 'สี',
@@ -213,6 +264,23 @@ export const translations = {
     status_cancelled: 'ยกเลิก',
     status_pending: 'รอดำเนินการ',
     status_open: 'เปิด',
+    create_dn: 'สร้างใบส่งของ',
+    dn_number: 'เลขที่ใบส่งของ',
+    customer: 'ลูกค้า',
+    delivery_date: 'วันที่ส่ง',
+    items_count: 'รายการ',
+    total_amount: 'ยอดรวม',
+    actions: 'จัดการ',
+    status_delivered: 'ส่งแล้ว',
+    mark_delivered: 'ยืนยันการส่ง',
+    select_customer: 'เลือกลูกค้า',
+    add_item: 'เพิ่มรายการ',
+    select_product_stock: 'เลือกสินค้า (จากสต็อก)',
+    price_unit: 'ราคา/หน่วย',
+    in_stock: 'คงเหลือ',
+    remove: 'ลบ',
+    save_dn: 'บันทึกใบส่งของ',
+    stock_deducted_msg: 'การสร้างใบส่งของจะตัดสต็อกทันที',
 
     // Inventory (Updated Round 2)
     finished_goods: 'สินค้าสำเร็จรูป',
@@ -325,6 +393,34 @@ export const translations = {
     qc_status_pending: 'รอดำเนินการ',
     qc_status_passed: 'ผ่าน',
     qc_status_rejected: 'ไม่ผ่าน',
+
+    // Employees (HR)
+    employee_list: 'รายชื่อพนักงาน',
+    add_employee: 'เพิ่มพนักงาน',
+    edit_employee: 'แก้ไขข้อมูล',
+    daily_wage: 'ค่าแรงรายวัน (บาท)',
+    department: 'แผนก',
+    role: 'ตำแหน่ง/หน้าที่',
+    search_employees: 'ค้นหาพนักงาน...',
+
+    // Procurement
+    procurement_dashboard: 'ระบบจัดซื้อ (Procurement)',
+    tab_suppliers: 'ผู้ขาย (Suppliers)',
+    tab_purchase_orders: 'ใบสั่งซื้อ (PO)',
+    create_po: 'สร้างใบสั่งซื้อ',
+    supplier: 'ผู้ขาย',
+    contact_person: 'ผู้ติดต่อ',
+    phone: 'เบอร์โทร',
+    po_number: 'เลขที่ PO',
+    order_date: 'วันที่สั่งซื้อ',
+    expected_date: 'วันที่รับของ',
+    receive_goods: 'รับสินค้า',
+    status_draft: 'ร่าง',
+    status_ordered: 'สั่งซื้อแล้ว',
+    status_received: 'รับของแล้ว',
+    select_supplier: 'เลือกผู้ขาย',
+    select_material: 'เลือกวัตถุดิบ',
+    add_material: 'เพิ่มรายการ',
     
     // General
     under_construction: 'กำลังปรับปรุง',
@@ -333,7 +429,7 @@ export const translations = {
   zh: {
     // Sidebar
     dashboard: '仪表板',
-    orders: '包装订单',
+    orders: '包装订单与发货',
     production: '生产 / 成型',
     inventory: '库存管理',
     product_management: '产品管理',
@@ -344,6 +440,7 @@ export const translations = {
     manager: '经理',
     online: '在线',
     factory_erp: '工厂 ERP',
+    procurement: '采购管理',
 
     // Header
     search_placeholder: '快速搜索...',
@@ -364,8 +461,10 @@ export const translations = {
     inspector: '检查员',
     lot: '批次',
 
-    // Orders
-    search_orders: '搜索订单...',
+    // Orders & Delivery
+    tab_packing_orders: '包装订单 (Internal)',
+    tab_delivery_notes: '送货单 (Delivery Notes)',
+    search_orders: '搜索单据...',
     lot_no: '批次号',
     product_name: '产品名称',
     color: '颜色',
@@ -377,6 +476,23 @@ export const translations = {
     status_cancelled: '已取消',
     status_pending: '待处理',
     status_open: '进行中',
+    create_dn: '创建送货单',
+    dn_number: '单号',
+    customer: '客户',
+    delivery_date: '送货日期',
+    items_count: '项目数',
+    total_amount: '总金额',
+    actions: '操作',
+    status_delivered: '已送达',
+    mark_delivered: '标记为已送达',
+    select_customer: '选择客户',
+    add_item: '添加项目',
+    select_product_stock: '选择产品 (库存)',
+    price_unit: '单价',
+    in_stock: '库存',
+    remove: '移除',
+    save_dn: '保存送货单',
+    stock_deducted_msg: '创建送货单将立即扣除库存。',
 
     // Inventory (Updated Round 2)
     finished_goods: '成品',
@@ -489,6 +605,34 @@ export const translations = {
     qc_status_pending: '待处理',
     qc_status_passed: '已通过',
     qc_status_rejected: '已拒绝',
+
+    // Employees (HR)
+    employee_list: '员工列表',
+    add_employee: '添加员工',
+    edit_employee: '编辑员工',
+    daily_wage: '日薪',
+    department: '部门',
+    role: '角色',
+    search_employees: '搜索员工...',
+
+    // Procurement
+    procurement_dashboard: '采购管理',
+    tab_suppliers: '供应商',
+    tab_purchase_orders: '采购订单 (PO)',
+    create_po: '创建采购订单',
+    supplier: '供应商',
+    contact_person: '联系人',
+    phone: '电话',
+    po_number: '订单号',
+    order_date: '订购日期',
+    expected_date: '预计日期',
+    receive_goods: '收货',
+    status_draft: '草稿',
+    status_ordered: '已订购',
+    status_received: '已收货',
+    select_supplier: '选择供应商',
+    select_material: '选择材料',
+    add_material: '添加材料',
 
     // General
     under_construction: '建设中',
