@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { LayoutDashboard, Package, Box, Factory, Users, ClipboardCheck, Settings, BarChart3 } from 'lucide-react';
+import { LayoutDashboard, Package, Box, Factory, Users, ClipboardCheck, Settings, BarChart3, Tag } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
 
 interface SidebarProps {
@@ -15,6 +15,7 @@ export const Sidebar: React.FC<SidebarProps> = ({ currentView, setCurrentView })
     { id: 'dashboard', label: t('dashboard'), icon: LayoutDashboard },
     { id: 'orders', label: t('orders'), icon: Package },
     { id: 'production', label: t('production'), icon: Factory },
+    { id: 'product_management', label: t('product_management'), icon: Tag },
     { id: 'inventory', label: t('inventory'), icon: Box },
     { id: 'qc', label: t('qc'), icon: ClipboardCheck },
     { id: 'employees', label: t('employees'), icon: Users },

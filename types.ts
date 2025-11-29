@@ -42,6 +42,21 @@ export interface InventoryItem {
   quantity: number;
   unit?: string;
   costPerUnit?: number;
+  category: 'FG' | 'RM'; // Finished Good or Raw Material
+  lotNumber?: string;
+  minStockLevel?: number;
+  location?: string;
+}
+
+export interface StockTransaction {
+  id: string;
+  itemId: string;
+  type: 'IN' | 'OUT' | 'ADJUST';
+  quantity: number;
+  date: string;
+  documentRef?: string; // PO number or Job ID
+  user: string;
+  note?: string;
 }
 
 export interface Machine {
@@ -50,6 +65,8 @@ export interface Machine {
   status: string;
   workingHoursPerDay: number;
   location: string;
+  currentJobId?: string; // Linked to ProductionQueue.id
+  currentOperator?: string;
 }
 
 export interface Employee {
@@ -65,12 +82,16 @@ export interface QCEntry {
   id: string;
   productName: string;
   quantity: number;
-  status: string;
+  status: 'Pending' | 'Passed' | 'Rejected';
   qcInspector: string;
   lotNumber: string;
   date?: string;
   qcDate?: string;
   orderId?: string;
+  defectType?: string;
+  defectQuantity?: number;
+  notes?: string;
+  images?: string[];
 }
 
 export interface RawMaterial {
@@ -79,6 +100,36 @@ export interface RawMaterial {
   quantity: number;
   unit: string;
   costPerUnit: number;
+}
+
+export interface FactoryProduct {
+  id: string;
+  name: string;
+  color: string;
+  productType: string;
+  salePrice: number;
+  totalCost: number;
+  materialCost: number;
+  profit: number;
+  cycleTimeSeconds: number;
+  laborAllocation: number;
+  aiPriceRecommendation?: {
+    recommendedPrice: number;
+  };
+}
+
+export interface ProductionQueue {
+  id: string;
+  orderId: string; // Linked to PackingOrder.id or just a reference
+  productName: string;
+  lotNumber: string;
+  quantityGoal: number;
+  quantityProduced: number;
+  status: 'Pending' | 'In Progress' | 'Completed' | 'Paused';
+  machineId?: string; // Assigned Machine
+  operatorName?: string;
+  priority: number; // 1 (High) - 10 (Low)
+  addedDate: string;
 }
 
 export interface AppData {
@@ -90,4 +141,7 @@ export interface AppData {
   packing_employees: Employee[];
   packing_qc_entries: QCEntry[];
   packing_raw_materials: RawMaterial[];
+  factory_products: FactoryProduct[];
+  production_queue: ProductionQueue[];
+  stock_transactions: StockTransaction[];
 }
